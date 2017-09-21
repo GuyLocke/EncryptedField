@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.8'
+ replicaid='492581A1001B3609'>
+<noteinfo noteid='1ba' unid='B3064AEF1858CBF0492580F100082522' sequence='19'>
+<created><datetime>20170328T102857,94+09</datetime></created>
+<modified><datetime>20170920T135713,91+09</datetime></modified>
+<revised><datetime>20170331T095842,11+09</datetime></revised>
+<lastaccessed><datetime>20170920T135816,81+09</datetime></lastaccessed>
+<addedtofile><datetime>20170920T135713,90+09</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Domino Administrator/O=EFMIYO</name></updatedby>
+<item name='$FormulaClass' sign='true'><text>1</text></item>
+<item name='$Index' sign='true'><text/></item>
+<item name='$Formula' summary='true' sign='true'><formula compiled='true'>
+8gACAKYAAgAkMwEAhwAQgrEQgswQlbYQj5EQgs0QiOoQgsIQgr4Qgq8QjewQkKwQgsUQgqsQgtwQ
+grcQgUIQldIQj1cQgrcQgukQj+oQjYcQgs0QgrEQgswQlbYQj5EQgvAQldIQj1cQgrUQgsQQgq0Q
+gr4QgrMQgqIQgUIQgWkQjcUQj0kQjVgQkFYQk/oQjp4QgUYApABWASICAQADABCBagAiAgMABQAe
+ABkAAwAEAAIACQBGb3JtJDMkQ29uZmxpY3QABAAEAAAAHgAFAAQARm9ybQEACgBDb25maWdGb3Jt
+CgIDAAcACgAEAAlMMVM=
+</formula></item>
+<item name='$Collation' summary='true'>
+<rawitemdata type='2'>
+EQABAABEgGYAAAAEAEZvcm0=
+</rawitemdata></item>
+<item name='$ViewFormat' summary='true' sign='true'>
+<rawitemdata type='5'>
+AQACAAIAmgwAAFZDCQAEAAQAAAAAAFAABQAACgAAAAAAAAAAAAICAAAAVkOAAAIAAAC4AAAAMAIG
+AAAKAAAAAAAAAAAAAgIAAABGb3JtRm9ybSQzuAACAKYAAgAkMwEAhwAQgrEQgswQlbYQj5EQgs0Q
+iOoQgsIQgr4Qgq8QjewQkKwQgsUQgqsQgtwQgrcQgUIQldIQj1cQgrcQgukQj+oQjYcQgs0QgrEQ
+gswQlbYQj5EQgvAQldIQj1cQgrUQgsQQgq0Qgr4QgrMQgqIQgUIQgWkQjcUQj0kQjVgQkFYQk/oQ
+jp4QgUYApABWASICAQADABCBagAiAgMABwAQAAkACTFTMlM2UzdTACYAAQAAAAEBAAkBAAIKAQEO
+CgAADwCtKwkCAQABAAAAAAAAAAAAV0MBAQAJAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAA
+AAAAAAAAAAAAAFdDBwEACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAABC
+AAAAAAABAP///wABALTawQABAAAAAAAAAAAAAAAAAAEA////AAEAtNrBAAAAAQD/AAAAAQAAAAAA
+AQAAAAAAAAAIAAAAAAABAA==
+</rawitemdata></item>
+<item name='$Fonts'><textlist><text>5</text><text>54</text><text>Meiryo UI</text><text
+>6</text><text>54</text><text>Meiryo UI</text><text>7</text><text>54</text><text
+>ＭＳ Ｐゴシック</text></textlist></item>
+<item name='$Comment' sign='true'><text/></item>
+<item name='$Flags'><text>Y</text></item>
+<item name='$V5ACTIONS' sign='true'>
+<rawitemdata type='1'>
+i/8oAAEABTZNZWlyeW8gVUkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL0c5wAAAAEAAQAAAAEAAAAA
+AAAABQABCQgAAgB5/2wAAQAfP1EAAQAAAAAAAQD///8AAQAfP1EAAAAkAAAAAAAAAAAAAwAAAAUA
+AAkAAF66SQwCqxRABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAD8/zoAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAA
+AAAAAAAAvv82AAAAAQBwAJ4BAAAAAAAAAAAAACAAAAASAAIA/BEAAAAAAADtAQMABwAMAAUACTBT
+MEUAvv/iAAAAAQAeAJ4BAAAbAAAAAAAAABCKwhCLqxCQ3RCS6BCVthCPkRCCzBCV0hCPVwCwAAEA
+QgADAFRNUAABAAUATm90ZXMAAQAHAE5vQ2FjaGUAHwIBAAAAAQAKAENvbmZpZ1ZpZXcAAAAAAAAA
+APA/qgQDAAcADAAFAAkxUzJTAAAAVgAFAAMAVE1QAFoBBQADAFRNUAABAAAACgIdAq8ANAAgAAIA
+6AMAAAAAAAABAAoAQ29uZmlnRm9ybe0CrgAUAAIA6AcAAAAAAADtAa4ABAC1AwMABwAKAAMACTBS
+AA==
+</rawitemdata></item>
+<item name='$LANGUAGE' sign='true'><text>ja</text></item>
+<item name='$TITLE' sign='true'><text>(環境設定)|ConfigView</text></item>
+<item name='$DesignerVersion' sign='true'><text>8.5.3</text></item></note>
+

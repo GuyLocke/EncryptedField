@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xe="http://www.ibm.com/xsp/coreex"
+	xmlns:xc="http://www.ibm.com/xsp/custom" style="background-color:rgb(239,239,239)">
+	<xp:this.data>
+		<xp:dominoDocument var="document1" formName="ConfigForm"></xp:dominoDocument>
+	</xp:this.data>
+	<xp:this.pageTitle><![CDATA[#{javascript:"環境設定文書 - " + @DbTitle()}]]></xp:this.pageTitle>
+	<xp:this.pageIcon><![CDATA[#{javascript:"/$icon"}]]></xp:this.pageIcon>
+	<xp:this.resources>
+		<xp:styleSheet href="/ssMainTopic.css"></xp:styleSheet>
+	</xp:this.resources>
+	<xe:keepSessionAlive id="keepSessionAlive1"></xe:keepSessionAlive>
+	<xc:ccHeader></xc:ccHeader>
+	<xc:ccUpdateInfo></xc:ccUpdateInfo>
+	<xp:panel styleClass="pnlPadding" id="contentsPanel">
+		<xp:table style="width:100.0%">
+			<xp:tr>
+				<xp:td styleClass="sectionCell">
+					<xp:label value="XPages settings" id="xpagesSetting_Label1"
+						styleClass="sectionLabel">
+					</xp:label>
+				</xp:td>
+			</xp:tr>
+		</xp:table>
+		<xp:table style="width:100.0%">
+			<xp:tr>
+				<xp:td style="width:15.0px"></xp:td>
+				<xp:td>
+					<xp:table style="width:100.0%" styleClass="tatbleStyle">
+						<xp:tr>
+							<xp:td styleClass="thStyle" style="width:160.0px">
+								<xp:label value="トップページ" id="topPage_Label1"
+									styleClass="itemLabel" for="topPage1">
+								</xp:label>
+							</xp:td>
+							<xp:td styleClass="tdStyle">
+								<xp:comboBox id="topPage1"
+									rendered="#{javascript:document1.isEditable()}" value="#{document1.TopPage}">
+									<xp:selectItem itemLabel="ダッシュボード" itemValue="dashboard"></xp:selectItem>
+									<xp:selectItem itemLabel="すべての文書" itemValue="all"></xp:selectItem>
+									<xp:selectItem itemLabel="カテゴリ別" itemValue="byCategory"></xp:selectItem>
+								</xp:comboBox>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td styleClass="borderStyle"></xp:td>
+							<xp:td styleClass="bgwhite"></xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td styleClass="thStyle">
+								<xp:label value="1ページ当たりの文書数" id="rows_Label1"
+									styleClass="itemLabel" for="rows1"></xp:label>
+							</xp:td>
+							<xp:td styleClass="tdStyle">
+								<xp:inputText id="rows1" value="#{document1.Rows}"
+									required="true" disableClientSideValidation="true" style="width:60.0px">
+									<xp:this.converter>
+										<xp:convertNumber type="number" integerOnly="true">
+										</xp:convertNumber>
+									</xp:this.converter>
+									<xp:this.validators>
+										<xp:validateRequired message="1ページあたりの文書数を入力してください。">
+										</xp:validateRequired>
+										<xp:validateLongRange minimum="5"
+											maximum="30" message="5-30の間で入力してください。">
+										</xp:validateLongRange>
+									</xp:this.validators>
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+					</xp:table>
+				</xp:td>
+			</xp:tr>
+		</xp:table>
+	</xp:panel>
+	<xp:panel id="actionPanel" styleClass="pnlPadding">
+		<xp:table style="width:100.0%">
+			<xp:tr>
+				<xp:td style="width:190.0px"></xp:td>
+				<xp:td>
+					<xp:messages id="messages1" layout="table" style="color:rgb(255,0,0)"></xp:messages>
+				</xp:td>
+			</xp:tr>
+			<xp:tr>
+				<xp:td></xp:td>
+				<xp:td>
+					<xp:button value="編集" id="btnEdit"
+						rendered="#{javascript:!document1.isEditable()}" styleClass="btnBackground">
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="complete">
+							<xp:this.action>
+								<xp:changeDocumentMode mode="edit"></xp:changeDocumentMode>
+							</xp:this.action>
+						</xp:eventHandler>
+					</xp:button>
+					<xp:button value="保存" id="btnSave"
+						rendered="#{javascript:document1.isEditable()}" styleClass="btnBackground">
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="complete">
+							<xp:this.action>
+								<xp:actionGroup>
+									<xp:saveDocument var="document1"></xp:saveDocument>
+									<xp:openPage name="/topPage.xsp"></xp:openPage>
+								</xp:actionGroup>
+							</xp:this.action>
+						</xp:eventHandler>
+					</xp:button>
+					<xp:button value="キャンセル" id="btnCancel">
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="complete" immediate="true" save="false">
+							<xp:this.action>
+								<xp:openPage name="/topPage.xsp"></xp:openPage>
+							</xp:this.action>
+						</xp:eventHandler>
+					</xp:button>
+				</xp:td>
+			</xp:tr>
+		</xp:table>
+	</xp:panel>
+	<xc:ccFooter></xc:ccFooter>
+</xp:view>

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" style="background-color:rgb(239,239,239)">
+	<xp:table style="width:100.0%">
+		<xp:tr>
+			<xp:td styleClass="sectionCell">
+				<xp:label value="Application Information" id="applicationInformation_Label1"
+					styleClass="sectionLabel">
+				</xp:label>
+			</xp:td>
+		</xp:tr>
+	</xp:table>
+	<xp:table style="width:100.0%">
+		<xp:tr>
+			<xp:td style="width:15.0px"></xp:td>
+			<xp:td>
+				<xp:table style="width:100.0%" styleClass="tatbleStyle">
+					<xp:tr>
+						<xp:td styleClass="thStyle" style="width:170.0px">
+							<xp:label value="サーバ名" id="serverName_Label1"
+								styleClass="itemLabel" for="serverName1">
+							</xp:label>
+						</xp:td>
+						<xp:td styleClass="tdStyle">
+							<xp:text escape="true" id="serverName1" style="font-family:Meiryo UI">
+								<xp:this.value><![CDATA[#{javascript:@Name( "[ABBREVIATE]", database.getServer() )}]]></xp:this.value>
+							</xp:text>
+						</xp:td>
+					</xp:tr>
+					<xp:tr>
+						<xp:td styleClass="borderStyle"></xp:td>
+						<xp:td styleClass="bgwhite"></xp:td>
+					</xp:tr>
+					<xp:tr>
+						<xp:td styleClass="thStyle">
+							<xp:label value="ファイルパス名" id="filePath_Label1"
+								styleClass="itemLabel" for="filePath1">
+							</xp:label>
+						</xp:td>
+						<xp:td styleClass="tdStyle">
+							<xp:text escape="true" id="filePath1"
+								value="#{javascript:database.getFilePath()}" style="font-family:Meiryo UI">
+							</xp:text>
+						</xp:td>
+					</xp:tr>
+					<xp:tr>
+						<xp:td styleClass="borderStyle"></xp:td>
+						<xp:td styleClass="bgwhite"></xp:td>
+					</xp:tr>
+					<xp:tr>
+						<xp:td styleClass="thStyle">
+							<xp:label value="タイトル" id="title_Label1" styleClass="itemLabel"
+								for="title1">
+							</xp:label>
+						</xp:td>
+						<xp:td styleClass="tdStyle">
+							<xp:text escape="true" id="title1"
+								value="#{javascript:database.getTitle()}" style="font-family:Meiryo UI">
+							</xp:text>
+						</xp:td>
+					</xp:tr>
+					<xp:tr>
+						<xp:td styleClass="borderStyle"></xp:td>
+						<xp:td styleClass="bgwhite"></xp:td>
+					</xp:tr>
+					<xp:tr>
+						<xp:td styleClass="thStyle">
+							<xp:label value="レプリカID" id="replicaID_Label1"
+								styleClass="itemLabel" for="replicaID1">
+							</xp:label>
+						</xp:td>
+						<xp:td styleClass="tdStyle">
+							<xp:text escape="true" id="replicaID1"
+								value="#{javascript:database.getReplicaID()}" style="font-family:Meiryo UI">
+							</xp:text>
+						</xp:td>
+					</xp:tr>
+					<xp:tr>
+						<xp:td styleClass="borderStyle"></xp:td>
+						<xp:td styleClass="bgwhite"></xp:td>
+					</xp:tr>
+					<xp:tr>
+						<xp:td styleClass="thStyle">
+							<xp:label value="ODS" id="fileFormat_Label1" styleClass="itemLabel"
+								for="fileFormat1">
+							</xp:label>
+						</xp:td>
+						<xp:td styleClass="tdStyle">
+							<xp:text escape="true" id="fileFormat1"
+								value="#{javascript:database.getFileFormat()}" style="font-family:Meiryo UI">
+								<xp:this.converter>
+									<xp:convertNumber type="number" integerOnly="true">
+									</xp:convertNumber>
+								</xp:this.converter>
+							</xp:text>
+						</xp:td>
+					</xp:tr>
+					<xp:tr>
+						<xp:td styleClass="borderStyle"></xp:td>
+						<xp:td styleClass="bgwhite"></xp:td>
+					</xp:tr>
+					<xp:tr>
+						<xp:td styleClass="thStyle">
+							<xp:label value="一時削除許可" id="isSoftDelete_Label1"
+								styleClass="itemLabel" for="isSoftDelete1">
+							</xp:label>
+						</xp:td>
+						<xp:td styleClass="tdStyle">
+							<xp:text escape="true" id="isSoftDelete1" style="font-family:Meiryo UI">
+								<xp:this.value><![CDATA[#{javascript:database.getOption( NotesDatabase.DBOPT_SOFTDELETE ) ? "する" : "しない"}]]></xp:this.value>
+							</xp:text>
+						</xp:td>
+					</xp:tr>
+					<xp:tr
+						rendered="#{javascript:database.getOption( NotesDatabase.DBOPT_SOFTDELETE )}">
+						<xp:td styleClass="borderStyle"></xp:td>
+						<xp:td styleClass="bgwhite"></xp:td>
+					</xp:tr>
+					<xp:tr
+						rendered="#{javascript:database.getOption( NotesDatabase.DBOPT_SOFTDELETE )}">
+						<xp:td styleClass="thStyle">
+							<xp:label value="文書が削除されるまでの時間" id="undeleteExpireTime_Label1"
+								styleClass="itemLabel" for="undeleteExpireTime1">
+							</xp:label>
+						</xp:td>
+						<xp:td styleClass="tdStyle">
+							<xp:text escape="true" id="undeleteExpireTime1" style="font-family:Meiryo UI">
+								<xp:this.value><![CDATA[#{javascript:
+									if ( database.getOption( NotesDatabase.DBOPT_SOFTDELETE ) ) {
+										database.getUndeleteExpireTime().toString() + " 時間";
+									}
+								}]]></xp:this.value>
+							</xp:text>
+						</xp:td>
+					</xp:tr>
+					<xp:tr>
+						<xp:td styleClass="borderStyle"></xp:td>
+						<xp:td styleClass="bgwhite"></xp:td>
+					</xp:tr>
+					<xp:tr>
+						<xp:td styleClass="thStyle">
+							<xp:label value="全文索引の有無" id="isFTIndexed_Label1"
+								styleClass="itemLabel" for="isFTIndexed1">
+							</xp:label>
+						</xp:td>
+						<xp:td styleClass="tdStyle">
+							<xp:text escape="true" id="isFTIndexed1" style="font-family:Meiryo UI">
+								<xp:this.value><![CDATA[#{javascript:database.isFTIndexed() ? "あり" : "なし"}]]></xp:this.value>
+							</xp:text>
+						</xp:td>
+					</xp:tr>
+					<xp:tr rendered="#{javascript:database.isFTIndexed()}">
+						<xp:td styleClass="borderStyle"></xp:td>
+						<xp:td styleClass="bgwhite"></xp:td>
+					</xp:tr>
+					<xp:tr rendered="#{javascript:database.isFTIndexed()}">
+						<xp:td styleClass="thStyle">
+							<xp:label value="最終索引日時" id="lastFTIndexed_Label1"
+								styleClass="itemLabel" for="lastFTIndexed1">
+							</xp:label>
+						</xp:td>
+						<xp:td styleClass="tdStyle">
+							<xp:text escape="true" id="lastFTIndexed1" style="font-family:Meiryo UI">
+								<xp:this.converter>
+									<xp:convertDateTime type="both"></xp:convertDateTime>
+								</xp:this.converter>
+								<xp:this.value><![CDATA[#{javascript:
+								if ( database.isFTIndexed() ) {
+									database.getLastFTIndexed().toJavaDate().toLocaleString();
+								}
+							}]]></xp:this.value>
+							</xp:text>
+						</xp:td>
+					</xp:tr>
+				</xp:table>
+			</xp:td>
+		</xp:tr>
+	</xp:table>
+	<xp:table style="width:100.0%;margin-top:10.0px">
+		<xp:tr>
+			<xp:td styleClass="sectionCell">
+				<xp:label value="Document Information" id="documentInformation_Label1"
+					styleClass="sectionLabel"></xp:label>
+			</xp:td>
+		</xp:tr>
+	</xp:table>
+	<xp:table style="width:100.0%">
+		<xp:tr>
+			<xp:td style="width:15.0px"></xp:td>
+			<xp:td>
+				<xp:table style="width:100.0%" styleClass="tatbleStyle">
+					<xp:tr>
+						<xp:td style="width:170.0px" styleClass="thStyle">
+							<xp:label value="全文書数" id="allDocumentsNum_Label1"
+								styleClass="itemLabel" for="allDocumentsNum1">
+							</xp:label>
+						</xp:td>
+						<xp:td styleClass="tdStyle">
+							<xp:text escape="true" id="allDocumentsNum1" style="font-family:Meiryo UI"
+								value="#{javascript:database.getAllDocuments().getCount()}">
+								<xp:this.converter>
+									<xp:convertNumber type="number" integerOnly="true">
+									</xp:convertNumber>
+								</xp:this.converter>
+							</xp:text>
+						</xp:td>
+					</xp:tr>
+					<xp:tr>
+						<xp:td styleClass="borderStyle"></xp:td>
+						<xp:td styleClass="bgwhite"></xp:td>
+					</xp:tr>
+					<xp:tr>
+						<xp:td styleClass="thStyle">
+							<xp:label value="未読文書数" id="allUnreadDocumentsNum_Label1"
+								styleClass="itemLabel" for="allUnreadDocumentsNum1"></xp:label>
+						</xp:td>
+						<xp:td styleClass="tdStyle">
+							<xp:text escape="true" id="allUnreadDocumentsNum1" style="font-family:Meiryo UI"
+								value="#{javascript:database.getAllUnreadDocuments().getCount()}">
+								<xp:this.converter>
+									<xp:convertNumber type="number" integerOnly="true">
+									</xp:convertNumber>
+								</xp:this.converter>
+							</xp:text>
+						</xp:td>
+					</xp:tr>
+					<xp:tr>
+						<xp:td styleClass="borderStyle"></xp:td>
+						<xp:td styleClass="bgwhite"></xp:td>
+					</xp:tr>
+					<xp:tr>
+						<xp:td styleClass="thStyle">
+							<xp:label value="作成者/更新者の数" id="authorsNum_Label1"
+								styleClass="itemLabel" for="authorsNum1"></xp:label>
+						</xp:td>
+						<xp:td styleClass="tdStyle">
+							<xp:text escape="true" style="font-family:Meiryo UI" id="authorsNum1">
+								<xp:this.converter>
+									<xp:convertNumber type="number" integerOnly="true">
+									</xp:convertNumber>
+								</xp:this.converter>
+							<xp:this.value><![CDATA[#{javascript:@Elements( @DbColumn( "", "(ModifiedUsersView)", 1 ) )}]]></xp:this.value></xp:text>
+						</xp:td>
+					</xp:tr>
+					<xp:tr>
+						<xp:td styleClass="borderStyle"></xp:td>
+						<xp:td styleClass="bgwhite"></xp:td>
+					</xp:tr>
+					<xp:tr>
+						<xp:td styleClass="thStyle">
+							<xp:label value="最終更新日時" id="lastModifiedDate_Label1"
+								styleClass="itemLabel" for="lastModifiedDate1"></xp:label>
+						</xp:td>
+						<xp:td styleClass="tdStyle">
+							<xp:text escape="true" id="lastModifiedDate1" style="font-family:Meiryo UI">
+								<xp:this.converter>
+									<xp:convertDateTime type="both"></xp:convertDateTime>
+								</xp:this.converter>
+								<xp:this.value><![CDATA[#{javascript:
+									var modifiedview:NotesView = null;
+									var entries:NotesViewEntryCollection = null;
+									var entry:NotesViewEntry = null;
+									try {
+										modifiedview = database.getView( "(LastModifiedDate)" );
+										entries      = modifiedview.getAllEntries();
+										entry        = entries.getFirstEntry();
+										if ( entry != null ) {
+											return entry.getColumnValues().firstElement().toJavaDate().toLocaleString();
+										} else {
+											return "****";
+										}
+									} catch( e ) {
+										return "Error";
+									} finally {
+										if ( entry != null ) entry.recycle();
+										if ( entries != null ) entries.recycle();
+										if ( modifiedview != null ) modifiedview.recycle();
+									}
+								}]]></xp:this.value>
+							</xp:text>
+						</xp:td>
+					</xp:tr>
+				</xp:table>
+			</xp:td>
+		</xp:tr>
+	</xp:table>
+</xp:view>

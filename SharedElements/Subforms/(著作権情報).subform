@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<note class='form' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.8'
+ replicaid='492581A1001B3609'>
+<noteinfo noteid='18e' unid='C94334E669CA39FB492580E60006EB42' sequence='10'>
+<created><datetime>20170317T101534,42+09</datetime></created>
+<modified><datetime>20170920T135713,69+09</datetime></modified>
+<revised><datetime>20170330T144557,25+09</datetime></revised>
+<lastaccessed><datetime>20170920T135713,68+09</datetime></lastaccessed>
+<addedtofile><datetime>20170920T135713,68+09</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Domino Administrator/O=EFLAB</name><name>CN=Domino Administrator/O=EFMIYO</name><name
+>CN=Domino Administrator/O=EFLAB</name><name>CN=Domino Administrator/O=EFMIYO</name><name
+>CN=Domino Administrator/O=EFLAB</name><name>CN=Domino Administrator/O=EFMIYO</name></updatedby>
+<wassignedby><name>CN=Domino Administrator/O=EFMIYO</name></wassignedby>
+<item name='$Comment' sign='true'><text/></item>
+<item name='$HTMLCode' sign='true'>
+<rawitemdata type='1'>
+X/8QAAIADwAHAAAAAAAAAA==
+</rawitemdata></item>
+<item name='$TITLE'><textlist><text>(著作権情報)</text><text>CopyrightSubF</text></textlist></item>
+<item name='$Info' sign='true'>
+<rawitemdata type='1'>
+hhgBAIAAAAAAgAAAAQABAP///wAQAAAA
+</rawitemdata></item>
+<item name='$Flags'><text>CUAx3</text></item>
+<item name='$DesignerVersion' sign='true'><text>8.5.3</text></item>
+<item name='$Fonts'>
+<rawitemdata type='1'>
+i/8oAAEABTZNZWlyeW8gVUkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+</rawitemdata></item>
+<item name='$$ScriptName' summary='false' sign='true'><text>CopyrightSubF</text></item>
+<item name='$Body' sign='true'>
+<rawitemdata type='1'>
+gQKC/1oAAQABAAAAAAAAAKAFAACgBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAABAAAAAJSHAAAAAAAAAAAAAAAAAQAAAAQAAACDBAEAhf8IAAUAAArdBgEAyf/J/xAA
+BwAAAGQAKADnAA4A0g4RAB8/UQABAICAgADeBgEAyf/dBgAAhf+F/wgABQHnCtIIAQAfP1EA3gYA
+AIX/3QYAAK3/qf8WAAEAGAAEAAoACgAAAAgAnAADAN0GAACF/4X/CAAFAecK0ggBAB8/UQDeBgAA
+hf+qAt4GAACuAN0GAACF/4X/CAAFAecK0ggBAB8/UQDeBgAAhf+BAoMEAQDdBgAAhf+F/0EABQHn
+CkNvcHlyaWdodCAoQykgMjAxNSwgMjAxNyBlZiBDby4sTHRkLiBBbGwgUmlnaHRzIFJlc2VydmVk
+LgDSCAEAHz9RAN4GAACF/w==
+</rawitemdata></item></note>
+

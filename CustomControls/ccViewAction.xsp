@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:panel id="actionPanel">
+		<xp:button value="新規作成" id="btnCompose"
+			style="font-family:Meiryo UI" styleClass="btnBackground">
+			<xp:eventHandler event="onclick" submit="true"
+				refreshMode="complete">
+				<xp:this.action>
+					<xp:openPage name="/maintopic.xsp"></xp:openPage>
+				</xp:this.action>
+			</xp:eventHandler>
+		</xp:button>
+		<xp:button value="パスワードの入力" id="btnInputPassword"
+			rendered="#{javascript:dominoIDVaultBean.getUserPassword() == null}"
+			styleClass="btnBackground">
+			<xp:eventHandler event="onclick" submit="true"
+				refreshMode="partial" refreshId="actionPanel">
+				<xp:this.action><![CDATA[#{javascript:getComponent( "dialog1" ).show();}]]></xp:this.action>
+			</xp:eventHandler>
+		</xp:button>
+		<xp:button value="パスワードのクリア" id="btnClearPassword"
+			style="font-family:Meiryo UI;font-size:10pt;color:rgb(31,63,81)"
+			rendered="#{javascript:dominoIDVaultBean.getUserPassword() != null}">
+			<xp:eventHandler event="onclick" submit="true"
+				refreshMode="partial" refreshId="actionPanel">
+				<xp:this.action><![CDATA[#{javascript:dominoIDVaultBean.setUserPassword( null );}]]></xp:this.action>
+			</xp:eventHandler>
+		</xp:button>
+		<xp:button value="環境設定" id="btnConfig"
+			styleClass="btnBackground">
+			<xp:this.rendered><![CDATA[#{javascript:
+				// 現在のユーザが保有しているロールと比較対象のロール名を取得
+				var r1 = context.getUser().getRoles();
+				var r2 = "[Admin]";
+				// ロールを保有している場合は表示する
+				if( @Contains(r1, r2) == @True() ) {
+					return true;
+				} else {
+					return false;
+				}
+			}]]></xp:this.rendered>
+			<xp:eventHandler event="onclick" submit="true"
+				refreshMode="complete">
+				<xp:this.action>
+					<xp:openPage name="/config.xsp"
+						target="editDocument">
+						<xp:this.documentId><![CDATA[#{javascript:
+						var configview:NotesView = null;
+						var configdoc:NotesDocument = null;
+						try {
+							configview = database.getView( "ConfigView" );
+							configdoc  = configview.getFirstDocument();
+							if ( configdoc != null ) {
+								return configdoc.getUniversalID();
+							} else {
+								return null;
+							}
+						} catch( e ) {
+							return null;
+						} finally {
+							if ( configdoc != null )  configdoc.recycle();
+							if ( configview != null ) configview.recycle();
+						}
+					}]]></xp:this.documentId>
+					</xp:openPage>
+				</xp:this.action>
+			</xp:eventHandler>
+		</xp:button>
+	</xp:panel>
+</xp:view>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" style="background-color:rgb(239,239,239)">
+	<xp:panel style="padding-left:10.0px;padding-right:10.0px;padding-top:10.0px">
+		<xp:table style="width:100.0%">
+			<xp:tr>
+				<xp:td align="right" style="background-color:rgb(31,63,81)">
+					<xp:label value="Copyright (C) 2017 ef Co.,Ltd. All Rights Reserved."
+						id="label1"
+						style="font-weight:bold;font-size:10pt;color:rgb(255,255,255);font-family:Meiryo UI">
+					</xp:label>
+				</xp:td>
+			</xp:tr>
+		</xp:table>
+	</xp:panel>
+</xp:view>

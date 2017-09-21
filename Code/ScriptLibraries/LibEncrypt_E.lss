@@ -1,0 +1,314 @@
+'++LotusScript Development Environment:2:5:(Options):0:74
+%REM
+	Library LibEncrypt
+	Created 2015/02/03 by Domino Administrator/EFMIYO
+	Description: Comments for Library
+%END REM
+Option Public
+Option Declare
+
+%Include "lsconst.lss"
+
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Function InputPassword() As NotesDocument
+Declare Sub DocEncrypt( pswd As String, secKey As String )
+Declare Function SelectSecretKey( dlgdoc As NotesDocument ) As String
+Declare Function GetSecretKey( pswd As String, secUserName As String ) As Variant
+Declare Sub CreateEncryptDocument()
+
+'++LotusScript Development Environment:2:5:(Declarations):0:10
+Const MSGTITLE = "Automatic creation of encrypted documents"
+
+
+'++LotusScript Development Environment:2:1:InputPassword:15:8
+%REM
+	Function InputPassword
+	引数：		なし
+	戻り値：		NotesDocument	ダイアログ用文書
+	説明: 		Notesのパスワードを入力させる
+	作成者：		Domino Administrator
+	作成日：		2017/03/21 Tue
+	更新者：		Domino Administrator
+	更新日：		2017/03/30 Thu
+	バージョン：	1.1
+	更新履歴：
+		1.0	2017/03/21 Tue	新規作成
+		1.1	2017/03/30 Thu	多言語化対応
+%END REM
+Function InputPassword() As NotesDocument
+	Set InputPassword = Nothing
+	On Error GoTo ErrProc
+	
+	Dim session As New NotesSession
+	Dim curdb   As     NotesDatabase
+	Dim dlgdoc  As     NotesDocument	'ダイアログ用文書
+	Dim uiws    As New NotesUIWorkspace
+	Dim flag    As     Boolean			'ダイアログの戻り値
+	
+	'自DBの取得
+	Set curdb  = session.CurrentDatabase
+	Set dlgdoc = curdb.Createdocument()
+	
+	flag = False
+	Do While flag = False
+		flag = uiws.Dialogbox( "PasswordSubF", True, True, False, False, False, False, "Input password", dlgdoc, True, False, True )
+		If flag = False Then
+			MsgBox "Cancel was clicked.", 0 + 16, MSGTITLE
+			Exit Function
+		End If
+		If dlgdoc.getItemValue( "pswd" )(0) = "" Then
+			MsgBox "Password has not been entered.", 0 + 16, MSGTITLE
+			flag = False
+		End If
+	Loop
+	
+	Set InputPassword = dlgdoc
+	Exit Function
+	
+ErrProc:
+	MsgBox _
+	"Call function[" & GetThreadInfo( LSI_THREAD_CALLPROC ) & "]" & Chr$(10) & Chr$(10) & _
+	GetThreadInfo( LSI_THREAD_PROC ) & " Line number:" & CStr(Erl) & Chr$(10) & _
+	"Error number:" & CStr(Err) & Chr$(10) & _
+	"Error contents:" & Error, _
+	0 + 16, MSGTITLE
+	
+	Exit Function
+End Function
+
+'++LotusScript Development Environment:2:2:DocEncrypt:17:8
+%REM
+	Sub DocEncrypt
+	引数：		pswd	IN	ユーザIDのパスワード
+				secKey	IN	暗号キー
+	戻り値：		なし
+	説明: 		新規文書を作成して、フィールドを暗号化する
+	作成者：		Domino Administrator
+	作成日：		2015/02/03 Tue
+	更新者：		Domino Administrator
+	更新日：		2017/03/30 Thu
+	バージョン：	1.2
+	更新履歴：
+		1.0	2015/02/03 Tue	新規作成
+		1.1	2017/03/20 Mon	IDボールト対応
+		1.2	2017/03/30 Thu	多言語化対応
+%END REM
+Sub DocEncrypt( pswd As String, secKey As String )
+	On Error GoTo ErrProc
+	
+	Dim session As New NotesSession			'現在のセッション
+	Dim svname  As     String				'IDボールトを検索するサーバ名
+	Dim uname   As     String				'IDボールト内を検索するユーザ名
+	Dim idvault As     NotesIDVault			'IDボールト
+	Dim userid  As     NotesUserID			'IDボールト内のユーザID情報
+	Dim db      As     NotesDatabase		'自DB
+	Dim doc     As     NotesDocument		'新規作成文書
+	Dim item    As     NotesItem
+	
+	Set db   = session.CurrentDatabase
+	Set doc  = db.CreateDocument
+	
+	'文書を作成する
+	Call doc.ReplaceItemValue( "Form", "MainTopic" )
+	Call doc.ReplaceItemValue( "Subject", "Documents created at the back end" )
+	Call doc.ReplaceItemValue( "Category", "Automatic" )
+	Call doc.ReplaceItemValue( "CreatedUser", session.Username )
+	Call doc.ReplaceItemValue( "CreatedDateTime", Now )
+	
+	'アイテムを暗号化する
+	Call doc.ReplaceItemValue( "AngouData", "hogehoge" )
+	Set item = doc.GetFirstItem( "AngouData" )
+	item.IsEncrypted = True
+	
+	'IDボールトの取得と確認
+	svname = session.CurrentDatabase.Server
+	uname  = session.UserName
+	Set idvault = session.GetIdVault()
+	If idvault.IsIdInVault( uname, svname ) = True Then
+		Set userid = idvault.getUserID( uname, pswd, svname )
+	End If
+	
+	'暗号キーのセット
+	doc.EncryptionKeys = secKey
+	
+	'文書を暗号化して保存する
+	Call doc.Encrypt()
+	Call doc.Save( True, True, True )
+	Exit Sub
+	
+ErrProc:
+	MsgBox _
+	"Call function[" & GetThreadInfo( LSI_THREAD_CALLPROC ) & "]" & Chr$(10) & Chr$(10) & _
+	GetThreadInfo( LSI_THREAD_PROC ) & " Line number:" & CStr(Erl) & Chr$(10) & _
+	"Error number:" & CStr(Err) & Chr$(10) & _
+	"Error contents:" & Error, _
+	0 + 16, MSGTITLE
+	
+	Exit Sub
+End Sub
+
+'++LotusScript Development Environment:2:1:SelectSecretKey:15:8
+%REM
+	Function SelectSecretKey
+	引数：		dlgdoc	IN	ダイアログ用文書
+	戻り値：		String		暗号キー
+	説明: 		暗号キーを選択する
+	作成者：		Domino Administrator
+	作成日：		2017/03/21 Tue
+	更新者：		Domino Administrator
+	更新日：		2017/03/30 Thu
+	バージョン：	1.1
+	更新履歴：
+		1.0	2017/03/21 Tue	新規作成
+		1.1	2017/03/30 Thu	多言語化対応
+%END REM
+Function SelectSecretKey( dlgdoc As NotesDocument ) As String
+	SelectSecretKey = ""
+	On Error GoTo ErrProc
+	
+	Dim flag    As     Boolean			'ダイアログの戻り値
+	Dim uiws    As New NotesUIWorkspace
+	
+	flag = False
+	Do While flag = False
+		flag = uiws.Dialogbox( "SecretKeySubF", True, True, False, False, False, False, "Select secret key", dlgdoc, True, False, True )
+		If flag = False Then
+			MsgBox "Cancel was clicked.", 0 + 16, MSGTITLE
+			Exit Function
+		End If
+		If dlgdoc.getItemValue( "SecretEncryptionKeys" )(0) = "" Then
+			MsgBox "The secret key is not selected.", 0 + 16, MSGTITLE
+			flag = False
+		End If
+	Loop
+	
+	SelectSecretKey = dlgdoc.GetItemValue( "SecretEncryptionKeys" )(0)
+	Exit Function
+	
+ErrProc:
+	MsgBox _
+	"Call function[" & GetThreadInfo( LSI_THREAD_CALLPROC ) & "]" & Chr$(10) & Chr$(10) & _
+	GetThreadInfo( LSI_THREAD_PROC ) & " Line number:" & CStr(Erl) & Chr$(10) & _
+	"Error number:" & CStr(Err) & Chr$(10) & _
+	"Error contents:" & Error, _
+	0 + 16, MSGTITLE
+	
+	Exit Function
+End Function
+
+'++LotusScript Development Environment:2:1:GetSecretKey:16:8
+%REM
+	Function GetSecretKey
+	引数：		pswd		IN	パスワード
+				secUserName	OUT	IDボールトのユーザ名
+	戻り値：		Variant			暗号キーの一覧
+	説明: 		パスワードをもとに暗号キーを取得する
+	作成者：		Domino Administrator
+	作成日：		2017/03/21 Tue
+	更新者：		Domino Administrator
+	更新日：		2017/03/30 Thu
+	バージョン：	1.1
+	更新履歴：
+		1.0	2017/03/21 Tue	新規作成
+		1.1	2017/03/30 Thu	多言語化対応
+%END REM
+Function GetSecretKey( pswd As String, secUserName As String ) As Variant
+	GetSecretKey = Null
+	On Error GoTo ErrProc
+	
+	Dim session As New NotesSession
+	Dim userid  As     NotesUserID
+	Dim idvault As     NotesIDVault
+	Dim svname  As     String
+	Dim uname   As     String
+	
+	'サーバ名とユーザ名を取得
+	svname = session.CurrentDatabase.Server
+	uname  = session.UserName
+	
+	'IDボールトからユーザ情報及び暗号キー情報を取得
+	Set idvault = session.GetIdVault()
+	If idvault.IsIdInVault( uname, svname ) = True Then
+		Set userid = idvault.getUserID( uname, pswd, svname )
+		
+		'IDボールト情報が取得できたら、戻り値にセットする
+		If Not( userid Is Nothing ) Then
+			secUserName = userid.userName
+			GetSecretKey = userid.getEncryptionKeys
+		End If
+	End If
+	
+	Exit Function
+	
+ErrProc:
+	MsgBox _
+	"Call function[" & GetThreadInfo( LSI_THREAD_CALLPROC ) & "]" & Chr$(10) & Chr$(10) & _
+	GetThreadInfo( LSI_THREAD_PROC ) & " Line number:" & CStr(Erl) & Chr$(10) & _
+	"Error number:" & CStr(Err) & Chr$(10) & _
+	"Error contents:" & Error, _
+	0 + 16, MSGTITLE
+	
+	Exit Function
+End Function
+
+'++LotusScript Development Environment:2:2:CreateEncryptDocument:15:8
+%REM
+	Sub CreateEncryptDocument
+	引数：		なし
+	戻り値：		なし
+	説明: 		暗号化文書を作成する
+	作成者：		Domino Administrator
+	作成日：		2017/03/21 Tue
+	更新者：		Domino Administrator
+	更新日：		2017/03/30 Thu
+	バージョン：	1.1
+	更新履歴：
+		1.0	2017/03/21 Tue	新規作成
+		1.1	2017/03/30 Thu	多言語化対応
+%END REM
+Sub CreateEncryptDocument()
+	On Error GoTo ErrProc
+	
+	Dim dlgdoc      As     NotesDocument	'ダイアログ用文書
+	Dim pswd        As     String			'パスワード
+	Dim secKeys     As     Variant			'IDボールトの暗号キーの一覧
+	Dim secUserName As     String			'IDボールトのユーザ名
+	Dim secKey      As     String			'暗号キー
+	
+	'パスワードを入力する（自作関数呼び出し）
+	Set dlgdoc = InputPassword()
+	If dlgdoc Is Nothing Then
+		Exit Sub
+	End If
+	pswd = dlgdoc.GetItemValue( "pswd" )(0)
+	
+	'パスワードをもとにIDボールトの暗号キーの一覧を取得する
+	secKeys = GetSecretKey( pswd, secUserName )
+	If IsNull( secKeys ) Then
+		Exit Sub
+	End If
+	
+	'ダイアログを表示して暗号キーを選択させる（自作関数呼び出し）
+	Call dlgdoc.ReplaceItemValue( "SecUserName", secUserName )
+	Call dlgdoc.ReplaceItemValue( "SecKeys", secKeys )
+	secKey = SelectSecretKey( dlgdoc )
+	If secKey = "" Then
+		Exit Sub
+	End If
+	
+	'新規文書を作成して、フィールドを暗号化する
+	Call DocEncrypt( pswd, secKey )
+	
+	Exit Sub
+	
+ErrProc:
+	MsgBox _
+	"Call function[" & GetThreadInfo( LSI_THREAD_CALLPROC ) & "]" & Chr$(10) & Chr$(10) & _
+	GetThreadInfo( LSI_THREAD_PROC ) & " Line number:" & CStr(Erl) & Chr$(10) & _
+	"Error number:" & CStr(Err) & Chr$(10) & _
+	"Error contents:" & Error, _
+	0 + 16, MSGTITLE
+	
+	Exit Sub
+End Sub

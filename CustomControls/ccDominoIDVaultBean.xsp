@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:panel styleClass="pnlPadding">
+		<xp:table style="width:100.0%">
+			<xp:tr>
+				<xp:td styleClass="sectionCell">
+					<xp:label value="dominoIDVaultBean Information" id="dominoIDVaultInformation_Label1"
+						styleClass="sectionLabel"></xp:label>
+				</xp:td>
+			</xp:tr>
+		</xp:table>
+		<xp:table style="width:100.0%">
+			<xp:tr>
+				<xp:td style="width:15.0px"></xp:td>
+				<xp:td>
+					<xp:table style="width:100.0%" styleClass="tatbleStyle">
+						<xp:tr>
+							<xp:td style="width:140.0px" styleClass="thStyle">
+								<xp:label value="getServerName" id="label1" styleClass="itemLabel">
+								</xp:label>
+							</xp:td>
+							<xp:td styleClass="tdStyle">
+								<xp:text escape="true" id="bean_ServerName1"
+									value="#{javascript:dominoIDVaultBean.getServerName()}">
+								</xp:text>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td styleClass="borderStyle"></xp:td>
+							<xp:td styleClass="bgwhite"></xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td styleClass="thStyle">
+								<xp:label value="getUserName" id="label2" styleClass="itemLabel">
+								</xp:label>
+							</xp:td>
+							<xp:td styleClass="tdStyle">
+								<xp:text escape="true" id="bean_UserName1"
+									value="#{javascript:dominoIDVaultBean.getUserName()}">
+								</xp:text>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td styleClass="borderStyle"></xp:td>
+							<xp:td styleClass="bgwhite"></xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td styleClass="thStyle">
+								<xp:label value="getUserPassword " id="label3"
+									styleClass="itemLabel">
+								</xp:label>
+							</xp:td>
+							<xp:td styleClass="tdStyle">
+								<xp:text escape="true" id="bean_Password1">
+									<xp:this.value><![CDATA[#{javascript:
+											if ( dominoIDVaultBean.getUserPassword() != null ) {
+												return "********";
+											}
+										}]]></xp:this.value>
+								</xp:text>
+							</xp:td>
+						</xp:tr>
+					</xp:table>
+				</xp:td>
+			</xp:tr>
+		</xp:table>
+	</xp:panel>
+</xp:view>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.8" replicaid="492581A1001B3609" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="17a" sequence="42" unid="96E61B25AA85D9B4492580DD002B47A0">
+<created><datetime>20170308T165243,84+09</datetime></created>
+<modified><datetime>20170920T135713,59+09</datetime></modified>
+<revised><datetime>20170330T094447,43+09</datetime></revised>
+<lastaccessed><datetime>20170920T135713,58+09</datetime></lastaccessed>
+<addedtofile><datetime>20170920T135713,58+09</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Domino Administrator/O=EFMIYO</name><name>CN=Domino Administrator/O=EFLAB</name><name>CN=Domino Administrator/O=EFMIYO</name><name>CN=Domino Administrator/O=EFLAB</name><name>CN=Domino Administrator/O=EFMIYO</name><name>CN=Domino Administrator/O=EFLAB</name><name>CN=Domino Administrator/O=EFMIYO</name></updatedby>
+<wassignedby><name>CN=Domino Administrator/O=EFMIYO</name></wassignedby>
+<item name="$TITLE"><text>ssMainTopic.css</text></item>
+<item name="$MimeType" sign="true"><text>text/css</text></item>
+<item name="$Flags"><text>34C=Q</text></item>
+<item name="$MimeCharSet" sign="true"><text>UTF-8</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+<item name="$FileNames" sign="true"><text>ssMainTopic.css</text></item></note>

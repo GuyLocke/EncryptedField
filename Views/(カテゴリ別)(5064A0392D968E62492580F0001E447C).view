@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.8'
+ replicaid='492581A1001B3609'>
+<noteinfo noteid='1b6' unid='5064A0392D968E62492580F0001E447C' sequence='10'>
+<created><datetime>20170327T143036,12+09</datetime></created>
+<modified><datetime>20170920T135713,89+09</datetime></modified>
+<revised><datetime>20170330T144557,37+09</datetime></revised>
+<lastaccessed><datetime>20170920T135713,88+09</datetime></lastaccessed>
+<addedtofile><datetime>20170920T135713,88+09</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Domino Administrator/O=EFMIYO</name></updatedby>
+<wassignedby><name>CN=Domino Administrator/O=EFMIYO</name></wassignedby>
+<item name='$FormatNote' summary='true' sign='true'>
+<rawitemdata type='4'>
+AQAn5ZAhZKDuy7TBJgDhfSVJ
+</rawitemdata></item>
+<item name='$FormulaClass' sign='true'><text>1</text></item>
+<item name='TmpViewDesignCollation'><text>ja</text></item>
+<item name='$TITLE' sign='true'><text>(カテゴリ別)|ByCategory</text></item>
+<item name='$Index' sign='true'><text/></item>
+<item name='$Formula' summary='true' sign='true'><formula compiled='true'>
+7AACAD4AAgAkOAUACQBBbmdvdURhdGEAaAGvACIAEAAAAAAAAAAAAAAArgASAAAAAAAAAABgZECu
+AAQAtQMDAAIAJgACACQzAgAGAAAAAAAAAAUACwBDcmVhdGVkVXNlcgC0AgMABQBaAFYACAACAAgA
+BwACAA8AEwAJAAQAJDhDYXRlZ29yeVN1YmplY3QkM0NyZWF0ZWREYXRlVGltZUxhc3RVcGRhdGVk
+RGF0ZVRpbWUkQ29uZmxpY3QkUkVGBAAEAAAAHgAFAAQARm9ybQEACQBNYWluVG9waWMACgIDAAcA
+CgAEAAlMMVM=
+</formula></item>
+<item name='$Collation' summary='true'>
+<rawitemdata type='2'>
+FQABAABECGYHAAAIAENhdGVnb3J5
+</rawitemdata></item>
+<item name='$ViewFormat' summary='true' sign='true'>
+<rawitemdata type='5'>
+AQAGAAIAmAwAAFZDwAACAAAATAAAABAABQDGCgAAAAAAAAAAAAICAAAAVkODBAgACgAAAAAAMAAG
+AQoKAAEAAAAAAAAAAgIAAABWQwAABwAFAAAAAADwAAcAxgoAAAAAAAAAAAACAgAAAFZDAAACAAYA
+NAAAAKAACADGCgAAAAAAAAAAAAICAAAAVkOAAA8ADQAAAAAAcAAJAMYKAAAAAAAABAAAAgIAAABW
+Q4AAEwASAAAAAABwAAoAxgoAAAAAAAAEAAACAgAAACQ4TAACAD4AAgAkOAUACQBBbmdvdURhdGEA
+aAGvACIAEAAAAAAAAAAAAAAArgASAAAAAAAAAABgZECuAAQAtQMDAAcADAAFAAkwUzBFAENhdGVn
+b3J5Q2F0ZWdvcmllc1N1YmplY3RUaXRsZSQzQXV0aG9yNAACACYAAgAkMwIABgAAAAAAAAAFAAsA
+Q3JlYXRlZFVzZXIAtAIDAAcADAAFAAkwUzBFAENyZWF0ZWREYXRlVGltZUNyZWF0aW9uIGRhdGVM
+YXN0VXBkYXRlZERhdGVUaW1lTGFzdCBtb2RpZmllZCBkYXRlJgABAAAAAQEACQEAAgoBAQ4KAAAP
+AK0rCQIBAAEAAAAAAAAAAABXQwEBAAkAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAD//wAAAAAAAAAA
+AAAAAAAAV0MLAQAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAFdDDAEA
+CQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAP//AAAAAAAAAAAAAAAAAABXQw0BAAkAAAAAAAAAAAAA
+AAAAAAAAAAAEAAAAAAD//wAAAAAAAAAAAAAAAAAAV0MOAQAJAAAAAAAAAAAAAAAAAAAAAAAAxAAA
+AAAA//8AAAAAAAAAAAAAAAAAAFdDDwEACQAAAAAAAAAAAAAAAAAAAAAAAMQAAAAAAP//AAAAAAAA
+AAAAAAAAAABCABAAAAABAP///wABALTawQABAAAAAAAAAAAAAAAAAAEA////AAEAtNrBAAAAAQD/
+AAAAAQAAAAAAAQAAAAAAAAAIAAAAAAABAFhDAEyAAQAAAAAAAQICAgEBAQEHAgMAAAAAAAAAAC8v
+IDpYQwBMgAEAAAAAAAECAgIBAQEBBwIDAAAAAAAAAAAvLyA6WUMAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFlDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+</rawitemdata></item>
+<item name='$Fonts' sign='true'><textlist><text>5</text><text>54</text><text
+>Meiryo UI</text><text>6</text><text>54</text><text>Meiryo UI</text><text
+>7</text><text>54</text><text>Meiryo UI</text><text>8</text><text>54</text><text
+>Meiryo UI</text><text>9</text><text>54</text><text>Meiryo UI</text><text
+>10</text><text>54</text><text>Meiryo UI</text><text>11</text><text>54</text><text
+>Meiryo UI</text><text>12</text><text>54</text><text>Meiryo UI</text><text
+>13</text><text>54</text><text>Meiryo UI</text><text>14</text><text>54</text><text
+>Meiryo UI</text><text>15</text><text>54</text><text>Meiryo UI</text></textlist></item>
+<item name='$Comment' sign='true'><text/></item>
+<item name='$Flags'><text>Y</text></item>
+<item name='$DesignerVersion'><text>8.5.3</text></item>
+<item name='$V5ACTIONS' sign='true'>
+<rawitemdata type='1'>
+i/8oAAEABTZNZWlyeW8gVUkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL0c5wAAAAEAAQAAAAEAAAAA
+AAAABQABCQgAAgB5/2wAAQAfP1EAAQAAAAAAAQD///8AAQAfP1EAAAAkAAAAAAAAAAAAAwAAAAUA
+AAkAAF66SQwCqxRABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAD8/zoAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAA
+AAAAAAAAvv82AAAAAQBwAJ4BAAAAAAAAAAAAACAAAAASAAIA/BEAAAAAAADtAQMABwAMAAUACTBT
+MEUAvv9UAAAAAQAeAJ4BAAAQAAAAAAAAAENvbXBvc2UgZG9jdW1lbnQuAAAAIAACAOgDAAAAAAAA
+AQAJAE1haW5Ub3BpYwDtAgMABwAMAAUACTBTMEUA
+</rawitemdata></item>
+<item name='$LANGUAGE'><text>en</text></item></note>
+

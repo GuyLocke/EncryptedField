@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.afterPageLoad><![CDATA[#{javascript:
+		var configView:NotesView = null;
+		var configDoc:NotesDocument = null;
+		var ret = "dashboard";
+		try {
+			configView = database.getView( "ConfigView" );
+			configDoc = configView.getFirstDocument();
+			if ( configDoc != null ) {
+				ret = configDoc.getItemValueString( "TopPage" );
+			}
+		} catch(e) {
+		} finally {
+			if ( configDoc != null ) configDoc.recycle();
+			if ( configView != null ) configView.recycle();
+		}
+		context.redirectToPage( ret );
+	}]]></xp:this.afterPageLoad>
+</xp:view>

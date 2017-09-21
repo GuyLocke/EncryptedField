@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.8'
+ replicaid='492581A1001B3609'>
+<noteinfo noteid='1ea' unid='88A49B7B49301C75492580F3000FB277' sequence='15'>
+<created><datetime>20170330T115127,27+09</datetime></created>
+<modified><datetime>20170920T135714,15+09</datetime></modified>
+<revised><datetime>20170330T144557,49+09</datetime></revised>
+<lastaccessed><datetime>20170920T135714,14+09</datetime></lastaccessed>
+<addedtofile><datetime>20170920T135714,14+09</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Domino Administrator/O=EFMIYO</name></updatedby>
+<wassignedby><name>CN=Domino Administrator/O=EFMIYO</name></wassignedby>
+<item name='$FormatNote' summary='true' sign='true'>
+<rawitemdata type='4'>
+AQAn5ZAhZKDuy7TBJgDhfSVJ
+</rawitemdata></item>
+<item name='$FormulaClass' sign='true'><text>1</text></item>
+<item name='$Index' sign='true'><text/></item>
+<item name='$Formula' summary='true' sign='true'><formula compiled='true'>
+jgACABoAAgAkMwUACgAkVXBkYXRlZEJ5qwEDAAUARgBCAAUAAgAHAA8AEwAJACQzU3ViamVjdENy
+ZWF0ZWREYXRlVGltZUxhc3RVcGRhdGVkRGF0ZVRpbWUkQ29uZmxpY3QEAAQAAAAeAAUABABGb3Jt
+AQAJAE1haW5Ub3BpYwAKAgMABwAKAAQACUwxUw==
+</formula></item>
+<item name='$Collation' summary='true'>
+<rawitemdata type='2'>
+DwABAABEiGYHAAACACQz
+</rawitemdata></item>
+<item name='$ViewFormat' summary='true' sign='true'>
+<rawitemdata type='5'>
+AQAEAAwAmgwAAFZDAwQCAAkAKAAAACAABQDGCgABAAAAAAAAAAICAAAgVkMAAAcADAAAAAAA8AAG
+AMYKAAAAAAAAAAAAAgIAAABWQ4AADwAMAAAAAABwAAcAxgoAAAAAAAAEAAACAgAAAFZDgAATABIA
+AAAAAHAACADGCgAAAAAAAAQAAAICAAAAJDMQjewQkKwQjtIoAAIAGgACACQzBQAKACRVcGRhdGVk
+QnmrAQMABwAMAAUACTBTMEUAU3ViamVjdBCDXhCDQxCDZxCDi0NyZWF0ZWREYXRlVGltZRCN7BCQ
+rBCT+hCOnkxhc3RVcGRhdGVkRGF0ZVRpbWUQjcUQj0kQjVgQkFYQk/oQjp4mAAEAAAABAQAJAQAC
+CgEBDgoAAA8ArSsJAgEAAQAAAAAAAAAAAFdDCQEACQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAP//
+AAAAAAAAAAAAAAAAAABXQwoBAAkAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAD//wAAAAAAAAAAAAAA
+AAAAV0MLAQAJAAAAAAAAAAAAAAAAAAAAAAAAxAAAAAAA//8AAAAAAAAAAAAAAAAAAFdDDAEACQAA
+AAAAAAAAAAAAAAAAAAAAAMQAAAAAAP//AAAAAAAAAAAAAAAAAABCABAAAAABAP///wABALTawQAB
+AAAAAAAAAAAAAAAAAAEA////AAEAtNrBAAAAAQD/AAAAAQAAAAAAAQAAAAAAAAAIAAAAAAABAFhD
+AEyAAQAAAAAAAQICAgEBAQEHAgMAAAAAAAAAAC8vIDpYQwBMgAEAAAAAAAECAgIBAQEBBwIDAAAA
+AAAAAAAvLyA6WUMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAFlDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+</rawitemdata></item>
+<item name='$Fonts'><textlist><text>5</text><text>54</text><text>Meiryo UI</text><text
+>6</text><text>54</text><text>Meiryo UI</text><text>7</text><text>54</text><text
+>Meiryo UI</text><text>8</text><text>54</text><text>Meiryo UI</text><text
+>9</text><text>54</text><text>Meiryo UI</text><text>10</text><text>54</text><text
+>Meiryo UI</text><text>11</text><text>54</text><text>Meiryo UI</text><text
+>12</text><text>54</text><text>Meiryo UI</text></textlist></item>
+<item name='$Comment' sign='true'><text/></item>
+<item name='$Flags'><text>Y</text></item>
+<item name='$WebFlags' sign='true'><text>A</text></item>
+<item name='$V5ACTIONS' sign='true'>
+<rawitemdata type='1'>
+i/8oAAEABTZNZWlyeW8gVUkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL0c5wAAAAEAAQAAAAEAAAAA
+AAAABQABCQgAAgB5/2wAAQAfP1EAAQAAAAAAAQD///8AAQAfP1EAAAAkAAAAAAAAAAAAAwAAAAUA
+AAkAAF66SQwCqxRABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAD8/zoAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAA
+AAAAAAAAvv82AAAAAQBwAJ4BAAAAAAAAAAAAACAAAAASAAIA/BEAAAAAAADtAQMABwAMAAUACTBT
+MEUA
+</rawitemdata></item>
+<item name='$TITLE' sign='true'><text>(ModifiedUsersView)</text></item>
+<item name='$DesignerVersion' sign='true'><text>8.5.3</text></item></note>
+

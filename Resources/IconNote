@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<note default='true' class='icon' xmlns='http://www.lotus.com/dxl' version='9.0'
+ maintenanceversion='1.8' replicaid='492581A1001B3609'>
+<noteinfo noteid='126' unid='47738922E35D837B49257DE10026C1B5' sequence='1011'>
+<created><datetime>20150203T160319,57+09</datetime></created>
+<modified><datetime>20170920T135850,26+09</datetime></modified>
+<revised><datetime>20170920T135850,25+09</datetime></revised>
+<lastaccessed><datetime>20170920T135850,25+09</datetime></lastaccessed>
+<addedtofile><datetime>20170920T135713,16+09</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Domino Administrator/O=EFMIYO</name></updatedby>
+<item name='IconBitmap' summary='true'>
+<rawitemdata type='6'>
+AiAgAQAA///////wD///4Af//8AD//4AAH/8AAA/+AAAH/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAA
+D+AAAAfAAAADgAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAcAAAAPwAAAP8AAAD/AAAA/wAAAP
++AAAH/wAAD//8A////gf//////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA/////wAAAAAAAAAAAAAA
+DyIiIiLwAAAAAAAAAAAAAPIt3d3SLwAAAAAAAAAAD//y3Xd33S//8AAAAAAAAPIiItd3d30iIi8A
+AAAAAA8i3d3Xd3d93d0i8AAAAADyLXd913d3fdd30i8AAAAA8td3fdd3d33Xd30vAAAAAPLXd33X
+d3d913d9LwAAAADy13d913d3fdd3fS8AAAAA8td3fdd3d33Xd30vAAAAAPLXd33Xd3d913d9LwAA
+AA/y13d913d3fdd3fS/wAADyItd3fdd3d33Xd30iLwAPIt13d33Xd3d913d33SLw8i13d3d913d3
+fdd3d3fSL/LXd3d3fdd3d33Xd3d3fS/y13d3d33Xd3d913d3d30v8td3d3fS13d3fS13d3d9L/It
+3d3dItd3d30i3d3d0i8PIiIt3dIt3d3SLd3SIiLwAP/y13d9It3dItd3fS//AAAA8td3fS13d9LX
+d30vAAAAAPLXd33Xd3d913d9LwAAAADy13d913d3fdd3fS8AAAAA8i3d0td3d30t3dIvAAAAAA8i
+IiItd3fSIiIi8AAAAAAA////It3dIv///wAAAAAAAAAAAPIiIi8AAAAAAAAAAAAAAAAP///wAAAA
+AAAAAAACICABAAD/////+A4DgA==
+</rawitemdata></item>
+<item name='$DefaultFrameset'><text>MainFrameSet</text></item>
+<item name='$TemplateServerName'><text>CN=Domino Administrator/O=EFMIYO</text></item>
+<item name='$TemplateFileName'><text>CN=EFMIYOSV/O=EFMIYO!!miyo\XPages\encryptXpg.ntf</text></item>
+<item name='$LaunchXPageRunOnServer'><text>0</text></item>
+<item name='$FlagsNoRefresh'><text/></item>
+<item name='$AllowRESTDbAPI'><number>2</number></item>
+<item name='$DefaultClientXPage'><text>maintopic.xsp</text></item>
+<item name='$DefaultXPage'><text>topPage.xsp</text></item>
+<item name='$DefaultLanguage'><text>ja</text></item>
+<item name='$PIRCRefreshModTime'><datetime>20170802T102058,93+09</datetime></item>
+<item name='$TemplateModTime'><datetime>20170802T102048,57+09</datetime></item>
+<item name='$LargeSummary'><text>0</text></item>
+<item name='$Flags'><text>J7!FM4</text></item>
+<item name='$Daos'><text>0</text></item>
+<item name='$TITLE'><text>Encrypted field test
+</text></item></note>
+

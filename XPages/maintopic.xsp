@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	xmlns:xe="http://www.ibm.com/xsp/coreex" style="background-color:rgb(239,239,239)">
+	<xp:this.data>
+		<xp:dominoDocument var="document1" formName="MainTopic"
+			computeWithForm="both" encryptionKeysProvider="#{javascript:viewScope.secKey}">
+		</xp:dominoDocument>
+	</xp:this.data>
+	<xp:this.pageIcon><![CDATA[#{javascript:"/$icon"}]]></xp:this.pageIcon>
+	<xp:this.pageTitle><![CDATA[#{javascript:"文書の暗号化テスト - " + @DbTitle()}]]></xp:this.pageTitle>
+	<xp:this.resources>
+		<xp:styleSheet href="/ssMainTopic.css"></xp:styleSheet>
+	</xp:this.resources>
+	<xe:keepSessionAlive id="keepSessionAlive1"></xe:keepSessionAlive>
+	<xc:ccHeader></xc:ccHeader>
+	<xc:ccUpdateInfo></xc:ccUpdateInfo>
+	<xc:ccDominoIDVaultBean>
+		<xc:this.rendered><![CDATA[#{javascript:
+			if ( @Contains( context.getUser().getRoles(), "[Admin]" ) ) {
+				return true;
+			} else {
+				return false;
+			}
+		}]]></xc:this.rendered>
+	</xc:ccDominoIDVaultBean>
+	<xp:panel id="contentsPanel" styleClass="pnlPadding">
+		<xp:table style="width:100.0%">
+			<xp:tr>
+				<xp:td styleClass="sectionCell">
+					<xp:label value="Basic Information" id="basicInformation_Label1"
+						styleClass="sectionLabel"></xp:label>
+				</xp:td>
+			</xp:tr>
+		</xp:table>
+		<xp:table style="width:100.0%">
+			<xp:tr>
+				<xp:td style="width:15.0px"></xp:td>
+				<xp:td>
+					<xp:table style="width:100.0%" styleClass="tatbleStyle"
+						id="basicInformationTbl">
+						<xp:tr>
+							<xp:td style="width:140.0px" styleClass="thStyle">
+								<xp:label value="タイトル：" id="subject_Label1" for="subject1"
+									styleClass="itemLabel">
+								</xp:label>
+							</xp:td>
+							<xp:td styleClass="tdStyle">
+								<xp:inputText value="#{document1.Subject}" id="subject1"
+									style="width:500.0px">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td styleClass="borderStyle"></xp:td>
+							<xp:td styleClass="bgwhite">
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td styleClass="thStyle">
+								<xp:label value="カテゴリ：" id="category_Label1" for="category1"
+									styleClass="itemLabel">
+								</xp:label>
+							</xp:td>
+							<xp:td styleClass="tdStyle">
+								<xp:inputText id="category1" value="#{document1.Category}"
+									multipleSeparator="," rendered="#{javascript:!document1.isEditable()}">
+								</xp:inputText>
+								<xp:inputText id="inputTag"
+									rendered="#{javascript:document1.isEditable()}">
+									<xp:typeAhead mode="partial" minChars="1">
+										<xp:this.valueList><![CDATA[#{javascript:@Unique( @DbColumn( @DbName(), "byCategory", 2 ) )}]]></xp:this.valueList>
+									</xp:typeAhead>
+								</xp:inputText>
+								<xp:button value="＋" id="btnAdd"
+									rendered="#{javascript:document1.isEditable()}">
+									<xp:eventHandler event="onclick" submit="true"
+										refreshMode="partial" refreshId="basicInformationTbl">
+										<xp:this.action><![CDATA[#{javascript:
+											// 入力値と現在のタグ値の取得
+											var inputTag = getComponent( "inputTag" ).getValue();
+											var currentTag = getComponent( "djextListTextBox1" ).getValue();
+											// 入力値と現在のタグ値の結合と重複値、null値の排除
+											var tmpTag = @List( currentTag, inputTag );
+											tmpTag = @Explode( tmpTag, "," );
+											var retTag = @Trim( @Unique( tmpTag ) );
+											// 計算結果を現在のタグ値にセット
+											getComponent( "djextListTextBox1" ).setValue( retTag );
+											
+											// 入力値のクリア
+											getComponent( "inputTag" ).setValue( null );
+										}]]></xp:this.action>
+									</xp:eventHandler>
+								</xp:button>
+								<xe:djextListTextBox id="djextListTextBox1"
+									value="#{document1.Category}" multipleSeparator=","
+									multipleTrim="true" rendered="#{javascript:document1.isEditable()}">
+								</xe:djextListTextBox>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td styleClass="borderStyle"></xp:td>
+							<xp:td styleClass="bgwhite"></xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td styleClass="thStyle">
+								<xp:label value="非暗号データ：" id="nonEncryptedData_Label1"
+									for="nonEncryptedData1" styleClass="itemLabel"></xp:label>
+							</xp:td>
+							<xp:td styleClass="tdStyle">
+								<xp:inputTextarea id="nonEncryptedData1"
+									value="#{document1.NonEncryptedData}" style="width:500.0px;height:72.0px"></xp:inputTextarea>
+							</xp:td>
+						</xp:tr>
+					</xp:table>
+				</xp:td>
+			</xp:tr>
+		</xp:table>
+		<xp:table style="width:100.0%;margin-top:10.0px">
+			<xp:tr>
+				<xp:td styleClass="sectionCell">
+					<xp:label value="Encryption Information" id="encryptionInformation_Label1"
+						styleClass="sectionLabel">
+					</xp:label>
+				</xp:td>
+			</xp:tr>
+		</xp:table>
+		<xp:table style="width:100.0%">
+			<xp:tr>
+				<xp:td style="width:15.0px"></xp:td>
+				<xp:td>
+					<xp:table style="width:100.0%" styleClass="tatbleStyle">
+						<xp:tr>
+							<xp:td style="width:140.0px" styleClass="thStyle">
+								<xp:label value="暗号データ：" id="angouData_Label1" for="angouData1"
+									styleClass="itemLabel">
+								</xp:label>
+							</xp:td>
+							<xp:td styleClass="tdStyle">
+								<xp:inputText value="#{document1.AngouData}" id="angouData1"
+									style="width:500.0px">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:this.rendered><![CDATA[#{javascript:document1.isEditable() && dominoIDVaultBean.getUserPassword() != null}]]></xp:this.rendered>
+							<xp:td styleClass="borderStyle"></xp:td>
+							<xp:td styleClass="bgwhite">
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:this.rendered><![CDATA[#{javascript:document1.isEditable() && dominoIDVaultBean.getUserPassword() != null}]]></xp:this.rendered>
+							<xp:td styleClass="thStyle">
+								<xp:label value="シークレット暗号キー：" id="secretEncryptionKeys_Label1"
+									for="secretEncryptionKeys1" styleClass="itemLabel">
+								</xp:label>
+							</xp:td>
+							<xp:td styleClass="tdStyle">
+								<xp:inputText id="secKey1" multipleSeparator=", "
+									multipleTrim="true" readonly="#{javascript: !document1.isEditable();}"
+									value="#{viewScope.secKey}" style="width:300.0px">
+									<xp:this.defaultValue><![CDATA[#{javascript:
+										var keys = document1.getEncryptionKeys();
+										if (!keys.isEmpty()) {
+											return keys;
+										} else if (document1.hasItem("PublicEncryptionKeys") || document1.isEncrypted()) {
+											return "$PublicEncryptionKeys"; //keyword
+										} else {
+											return null;
+										}
+									}]]></xp:this.defaultValue>
+								</xp:inputText>
+								<xe:secretKeyPicker for="secKey1" id="secretKeyPicker1">
+									<xe:this.dataProvider>
+										<xe:simpleSecretKeyPicker>
+											<xe:this.secretKeyList><![CDATA[#{javascript:
+												// Your SSJS code to populate the keys goes here, e.g.
+												var svname = dominoIDVaultBean.getServerName();
+												var uname = dominoIDVaultBean.getUserName();
+												var pswd = dominoIDVaultBean.getUserPassword();
+												@UserSecretKeys( svname, pswd, uname );
+											}]]></xe:this.secretKeyList>
+										</xe:simpleSecretKeyPicker>
+									</xe:this.dataProvider>
+								</xe:secretKeyPicker>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:this.rendered><![CDATA[#{javascript:
+								// エラー原因が不明のため未実装
+								// document1.isEditable() && dominoIDVaultBean.getUserPassword() != null
+								return false;
+							}]]></xp:this.rendered>
+							<xp:td styleClass="borderStyle"></xp:td>
+							<xp:td styleClass="bgwhite">
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:this.rendered><![CDATA[#{javascript:
+								// エラー原因が不明のため未実装
+								// document1.isEditable() && dominoIDVaultBean.getUserPassword() != null
+								return false;
+							}]]></xp:this.rendered>
+							<xp:td styleClass="thStyle">
+								<xp:label value="パブリック暗号キー：" id="secUsers_Label1"
+									styleClass="itemLabel" for="secUsers1">
+								</xp:label>
+							</xp:td>
+							<xp:td styleClass="tdStyle">
+								<xp:inputText id="secUsers1" multipleSeparator=","
+									style="width:500.0px" value="#{document1.secUsers}">
+								</xp:inputText>
+								<xe:namePicker id="namePicker1" for="secUsers1">
+									<xe:this.dataProvider>
+										<xe:dominoNABNamePicker people="true"
+											groups="false" valueNameFormat="abbreviated">
+										</xe:dominoNABNamePicker>
+									</xe:this.dataProvider>
+								</xe:namePicker>
+							</xp:td>
+						</xp:tr>
+					</xp:table>
+				</xp:td>
+			</xp:tr>
+		</xp:table>
+		<xp:table style="width:100.0%;margin-top:15.0px">
+			<xp:tr>
+				<xp:td styleClass="sectionCell">
+					<xp:label value="Body Context" id="bodyContext_Label1"
+						styleClass="sectionLabel">
+					</xp:label>
+				</xp:td>
+			</xp:tr>
+		</xp:table>
+		<xp:table style="width:100.0%">
+			<xp:tr>
+				<xp:td style="width:15.0px"></xp:td>
+				<xp:td>
+					<xp:table style="width:100.0%"
+						styleClass="tatbleStyle">
+						<xp:tr>
+							<xp:td styleClass="thStyle"
+								style="width:140.0px">
+								<xp:label value="本文：" id="body_Label1"
+									for="body1" styleClass="itemLabel">
+								</xp:label>
+							</xp:td>
+							<xp:td styleClass="tdStyle">
+								<xp:inputRichText
+									value="#{document1.Body}" id="body1">
+								</xp:inputRichText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td styleClass="thStyle">
+								<xp:label value="添付ファイル" id="label1" styleClass="itemLabel"></xp:label></xp:td>
+							<xp:td styleClass="tdStyle"
+								style="font-family:Meiryo UI;font-size:10pt">
+								<xp:fileUpload id="fileUpload1"
+									value="#{document1.Body}">
+								</xp:fileUpload>
+								<xp:fileDownload rows="30"
+									id="fileDownload1" displayLastModified="false"
+									value="#{document1.Body}"
+									style="font-family:Meiryo UI;font-size:10pt">
+								</xp:fileDownload>
+							</xp:td>
+						</xp:tr>
+					</xp:table>
+				</xp:td>
+			</xp:tr>
+		</xp:table>
+	</xp:panel>
+	<xp:panel id="actionPanel" styleClass="pnlPadding">
+		<xp:table style="width:100.0%">
+			<xp:tr>
+				<xp:td style="width:170.0px"></xp:td>
+				<xp:td>
+					<xp:messages id="messages1" style="color:rgb(255,0,0);font-family:Meiryo UI;font-size:10pt"
+						layout="table">
+					</xp:messages>
+				</xp:td>
+			</xp:tr>
+			<xp:tr>
+				<xp:td></xp:td>
+				<xp:td>
+					<xp:button value="編集" id="btnEdit"
+						rendered="#{javascript:! document1.isEditable()}" styleClass="btnBackground">
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="complete" id="eventHandler1">
+							<xp:this.action>
+								<xp:changeDocumentMode mode="edit"></xp:changeDocumentMode>
+							</xp:this.action>
+						</xp:eventHandler>
+					</xp:button>
+					<xp:button value="保存" id="btnSave"
+						rendered="#{javascript:document1.isEditable()}" styleClass="btnBackground">
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="complete">
+							<xp:this.action><![CDATA[#{javascript:
+								var docBackend:NotesDocument = null;
+								var idvault:NotesIDVault = null;
+								var userid:NotesUserID = null;
+								var secKeys:java.util.Vector = new java.util.Vector();
+								try {
+									docBackend = document1.getDocument( true );
+									var secKey = viewScope.secKey;
+									// パスワードが入力されて、暗号キーが選択された時だけ暗号化する
+									var pswd = dominoIDVaultBean.getUserPassword();
+									if ( pswd != null ) {
+										idvault = session.getIDVault();
+										var uname = dominoIDVaultBean.getUserName();
+										var svname = dominoIDVaultBean.getServerName();
+										userid = idvault.getUserID( uname, pswd, svname );
+										if ( secKey != "" ) {
+											// 選択された暗号キーが一つの場合、StringになるのでVectorに変換
+											if ( secKey.getClass() == "class java.lang.String" ) {
+												secKeys.addElement( secKey );
+											} else {
+												secKeys = secKey;
+											}
+											docBackend.setEncryptionKeys( secKeys );
+											docBackend.encrypt( userid );
+										}
+										/*
+										// エラー原因が不明のため、未実装
+										var secUsers:java.util.Vector = docBackend.getItemValue( "secUsers" );
+										// var secUsers:java.util.Vector = viewScope.secUsers;
+										if ( ! secUsers.isEmpty() ) {
+											docBackend.replaceItemValue( "PublicEncryptionKeys", secUsers );
+											docBackend.encrypt( userid );
+										}
+										*/
+									}
+									docBackend.save( true, true, true );
+									context.redirectToHome();
+								} catch(e) {
+									print( "Error occurred at [btnSave] -----From-----" );
+									print(e);
+									print( "Error occurred at [btnSave] -----To-----" );
+								} finally {
+									if ( userid != null ) userid.recycle();
+									if ( idvault != null ) idvault.recycle();
+									if ( docBackend != null ) docBackend.recycle();
+								}
+							}]]></xp:this.action>
+						</xp:eventHandler>
+					</xp:button>
+					<xp:button value="削除" id="btnRemove"
+						rendered="#{javascript:! document1.isEditable()}">
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="complete">
+							<xp:this.action>
+								<xp:deleteDocument name="/topPage.xsp" var="document1"
+									message="この文書を削除してもよいですか？">
+								</xp:deleteDocument>
+							</xp:this.action>
+						</xp:eventHandler>
+					</xp:button>
+					<xp:button value="キャンセル" id="btnCancel">
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="complete" immediate="true" save="false" id="eventHandler4">
+							<xp:this.action>
+								<xp:openPage name="/topPage.xsp"></xp:openPage>
+							</xp:this.action>
+						</xp:eventHandler>
+					</xp:button>
+				</xp:td>
+			</xp:tr>
+		</xp:table>
+	</xp:panel>
+	<xc:ccFooter></xc:ccFooter>
+	<xe:dialog id="dialog1" title="パスワードの入力"
+		style="font-size:12pt;font-family:Meiryo UI">
+		<xc:ccPassword></xc:ccPassword>
+	</xe:dialog>
+</xp:view>

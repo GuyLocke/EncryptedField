@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	xmlns:xe="http://www.ibm.com/xsp/coreex">
+	<xp:this.pageTitle><![CDATA[#{javascript:"文書の暗号化テスト - " + @DbTitle()}]]></xp:this.pageTitle>
+	<xp:this.pageIcon><![CDATA[#{javascript:"/$icon"}]]></xp:this.pageIcon>
+	<xp:this.resources>
+		<xp:styleSheet href="/ssMainTopic.css"></xp:styleSheet>
+	</xp:this.resources>
+	<xe:keepSessionAlive id="keepSessionAlive1"></xe:keepSessionAlive>
+	<xc:ccHeader></xc:ccHeader>
+	<xc:ccViewPanel>
+		<xp:this.facets>
+			<xp:viewPanel id="viewPanel1"
+				viewStyle="width:100%;font-family:Meiryo UI;font-size:10pt"
+				pageName="/maintopic.xsp" var="viewRow" unreadMarksClass="rowUnread *"
+				rowClasses="rowDefault, rowAlternating" showUnreadMarks="true"
+				xp:key="facet_1">
+				<xp:this.facets>
+					<xp:pager partialRefresh="true" layout="Previous Group Next"
+						xp:key="headerPager" id="pager1">
+					</xp:pager>
+				</xp:this.facets>
+				<xp:this.data>
+					<xp:dominoView var="view1"
+						viewName="AllDocuments">
+					</xp:dominoView>
+				</xp:this.data>
+				<xp:this.rows><![CDATA[#{javascript:getComponent( "rows1" ).getValue()}]]></xp:this.rows>
+				<xp:viewColumn id="viewColumn5" columnName="$8"
+					displayAs="hidden">
+					<xp:this.facets>
+						<xp:viewColumnHeader xp:key="header"
+							id="viewColumnHeader5" style="width:60.0px">
+						</xp:viewColumnHeader>
+					</xp:this.facets>
+					<xp:this.iconSrc><![CDATA[#{javascript:
+					if ( viewRow.getColumnValue( "$8" ) == 163 ) {
+						return "/vwicn163.gif";
+					}
+				}]]></xp:this.iconSrc>
+				</xp:viewColumn>
+				<xp:viewColumn columnName="Subject" id="viewColumn2"
+					displayAs="link" openDocAsReadonly="true">
+					<xp:viewColumnHeader value="タイトル" id="viewColumnHeader2">
+					</xp:viewColumnHeader>
+				</xp:viewColumn>
+				<xp:viewColumn columnName="$3" id="viewColumn3" style="font-family:Meiryo UI;font-size:10pt">
+					<xp:viewColumnHeader value="作成者" id="viewColumnHeader3">
+					</xp:viewColumnHeader>
+				</xp:viewColumn>
+				<xp:viewColumn columnName="CreatedDateTime" id="viewColumn4" style="font-family:Meiryo UI;font-size:10pt">
+					<xp:this.converter>
+						<xp:convertDateTime type="both"></xp:convertDateTime>
+					</xp:this.converter>
+					<xp:viewColumnHeader value="作成日時" id="viewColumnHeader4">
+					</xp:viewColumnHeader>
+				</xp:viewColumn>
+				<xp:viewColumn id="viewColumn6" columnName="LastUpdatedDateTime" style="font-family:Meiryo UI;font-size:10pt">
+					<xp:this.facets>
+						<xp:viewColumnHeader xp:key="header"
+							id="viewColumnHeader6" value="最終更新日時">
+						</xp:viewColumnHeader>
+					</xp:this.facets>
+					<xp:this.converter>
+						<xp:convertDateTime type="both"></xp:convertDateTime>
+					</xp:this.converter>
+				</xp:viewColumn>
+			</xp:viewPanel>
+		</xp:this.facets>
+	</xc:ccViewPanel>
+	<xc:ccFooter></xc:ccFooter>
+	<xe:dialog id="dialog1" title="パスワードの入力"
+		style="font-family:Meiryo UI;font-size:12pt">
+		<xc:ccPassword></xc:ccPassword>
+	</xe:dialog>
+	<xp:eventHandler event="onClientLoad" submit="true"
+		refreshMode="norefresh">
+		<xp:this.action><![CDATA[#{javascript:
+			if ( dominoIDVaultBean.getServerName() == null ) {
+				dominoIDVaultBean.setDefaultValues();
+			}
+		}]]></xp:this.action>
+	</xp:eventHandler>
+</xp:view>

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<note class='form' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.8'
+ replicaid='492581A1001B3609'>
+<noteinfo noteid='182' unid='9CE8C94447766EEF492580E60002108A' sequence='21'>
+<created><datetime>20170317T092233,06+09</datetime></created>
+<modified><datetime>20170920T135713,63+09</datetime></modified>
+<revised><datetime>20170327T085547,65+09</datetime></revised>
+<lastaccessed><datetime>20170920T135713,62+09</datetime></lastaccessed>
+<addedtofile><datetime>20170920T135713,62+09</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Domino Administrator/O=EFMIYO</name><name>CN=Domino Administrator/O=EFLAB</name><name
+>CN=Domino Administrator/O=EFMIYO</name><name>CN=Domino Administrator/O=EFLAB</name><name
+>CN=Domino Administrator/O=EFMIYO</name><name>CN=Domino Administrator/O=EFLAB</name><name
+>CN=Domino Administrator/O=EFMIYO</name></updatedby>
+<wassignedby><name>CN=Domino Administrator/O=EFMIYO</name></wassignedby>
+<item name='$Comment' sign='true'><text/></item>
+<item name='$FrameSet' sign='true'>
+<rawitemdata type='1'>
+7/8YAAIABAAAAAAAAAAAAAAAAAAAAAAA8P9CAAQAAAABAAAAAAAAAAAAAAAAAAUAAAAAAAUAAAAA
+AAMAAQAAAAAABQAAAAAAAAABADIAAwABAAEAOAADAAEA8f80ABAAAAAAQAEBAgABAAEAAAAAAAAA
+AAAAAAEAAAAAAAAAAQD///8AAQAACgEAAAAAAPb/VQAAAAAAAwAHAAoADwAaAAAAAAAAAAAARUZN
+SVlPU1YvRUZNSVlPbWl5b1xYUGFnZXNcZW5jcnlwdFhwZy5uc2YAAAAAAAAAAEhlYWRlclBhZ2U/
+8f80ABAAAAAAQAEBAgABAAEAAAAAAAAAAAAAAAEAAAAAAAAAAQD///8AAQAACgEAAAAAAPb/UwAA
+AAAAAwAHAAgADwAaAAAAAAAAAAAARUZNSVlPU1YvRUZNSVlPbWl5b1xYUGFnZXNcZW5jcnlwdFhw
+Zy5uc2YAAAAAAAAAAE1haW5QYWdlP/H/NAAQAAAAAEABAQIAAQABAAAAAAAAAAAAAAABAAAAAAAA
+AAEA////AAEAAAoBAAAAAAD2/1UAAAAAAAMABwAKAA8AGgAAAAAAAAAAAEVGTUlZT1NWL0VGTUlZ
+T21peW9cWFBhZ2VzXGVuY3J5cHRYcGcubnNmAAAAAAAAAABGb290ZXJQYWdlPw==
+</rawitemdata></item>
+<item name='$Flags'><text>#34CQ</text></item>
+<item name='$TITLE' sign='true'><text>(アウトラインフレーム)|OutlineFrameSet</text></item>
+<item name='$DesignerVersion' sign='true'><text>8.5.3</text></item></note>
+

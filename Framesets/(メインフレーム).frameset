@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<note class='form' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.8'
+ replicaid='492581A1001B3609'>
+<noteinfo noteid='15e' unid='982E880EE98B2E8349257DE400086881' sequence='24'>
+<created><datetime>20150206T103150,41+09</datetime></created>
+<modified><datetime>20170920T135713,45+09</datetime></modified>
+<revised><datetime>20170331T093555,90+09</datetime></revised>
+<lastaccessed><datetime>20170920T135713,44+09</datetime></lastaccessed>
+<addedtofile><datetime>20170920T135713,44+09</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Domino Administrator/O=EFMIYO</name><name>CN=Domino Administrator/O=EFLAB</name><name
+>CN=Domino Administrator/O=EFMIYO</name><name>CN=Domino Administrator/O=EFLAB</name><name
+>CN=Domino Administrator/O=EFMIYO</name><name>CN=Domino Administrator/O=EFLAB</name><name
+>CN=Domino Administrator/O=EFMIYO</name></updatedby>
+<wassignedby><name>CN=Domino Administrator/O=EFMIYO</name></wassignedby>
+<item name='$TITLE' sign='true'><text>(メインフレーム)|MainFrameSet</text></item>
+<item name='$Comment' sign='true'><text/></item>
+<item name='$FrameSet' sign='true'>
+<rawitemdata type='1'>
+7/8YAAIAAwAAAAAAAAAAAAAAAAAAAAAA8P8+AAQAAAABAAAAAAAAAAAAAAAAAAUAAAAAAAUAAAAA
+AAEAAgAAAAAABQAAAAAAAAADAAEAAQDcAAMAAQDx/z0AEAAAAABAAQECAAEAAQAAAAAAAAAAAAkA
+AQAAAAAAAABOb3Rlc1ZpZXcBAP///wABAAAKAQAAAAAAP/b/MQAAAAAAAwAGAA8AAAAAAAAAAAAA
+AAAAAAAAAAAAAABPdXRsaW5lRnJhbWVTZXQ/8f89AAAAAAAAQAEBAwABAAEAAAAAAAkAAAAAAAEA
+AAAAAAAATm90ZXNWaWV3AQD///8AAQAACgEAAAAAAD/2/4IBAQAAAAMAAgBgAQAAAAAAAAAAAAAA
+AAAAAAAAAAAAUAEBAGAABwBUT1BQQUdFAAEABQBOb3RlcwABAAcATm9DYWNoZQAfAgEAAAABAAoA
+Q29uZmlnVmlldwEACgBDb25maWdGb3JtAQAHAFRvcFBhZ2UAAgAMAQAAAAAAAIMGAwAHAAwABQAJ
+MVMyUwABALwAAwBSRVQABQAHAFRPUFBBR0UAAQAJAGRhc2hib2FyZAAKAq8AkgAWAAEADABBbGxE
+b2N1bWVudHOuAHwABQAHAFRPUFBBR0UAAQADAGFsbAAKAq8AYgAWAAEADABBbGxEb2N1bWVudHOu
+AEwABQAHAFRPUFBBR0UAAQAKAGJ5Q2F0ZWdvcnkKAq8ALAAUAAEACgBCeUNhdGVnb3J5rgAYAAEA
+DABBbGxEb2N1bWVudHOuAAQAtQcDAAcADgAHAAkwUjFTMlMAAAAOAAUAAwBSRVQAAwAHAAoAAwAJ
+MFIAEAAAAA4AAQAEAFZpZXcDAA==
+</rawitemdata></item>
+<item name='$Flags'><text>#34CQ</text></item>
+<item name='$DesignerVersion'><text>8.5.3</text></item></note>
+

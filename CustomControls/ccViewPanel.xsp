@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	style="background-color:rgb(239,239,239)">
+	<xp:panel style="display:none">
+		<xp:text escape="true" id="rows1">
+			<xp:this.converter>
+				<xp:convertNumber type="number" integerOnly="true"></xp:convertNumber>
+			</xp:this.converter>
+			<xp:this.value><![CDATA[#{javascript:
+				var configdoc = database.getView( "ConfigView" ).getFirstDocument();
+				var rows = 30;
+				if ( configdoc != null ) {
+					rows = configdoc.getItemValueInteger( "Rows" );
+				}
+				return rows;
+			}]]></xp:this.value>
+		</xp:text>
+	</xp:panel>
+	<xp:panel styleClass="pnlPadding">
+		<xp:table style="width:100.0%" styleClass="bgwhite">
+			<xp:tr>
+				<xp:td>
+					<xc:ccViewAction></xc:ccViewAction>
+				</xp:td>
+				<xp:td style="width:180.0px" align="right">
+					<xp:button value=" Dashboard" id="dashboard_Button1"
+						icon="/dashboard.png">
+						<xp:this.styleClass><![CDATA[#{javascript:
+							context.getUrl().getAddress().contains( "dashboard" ) ? "btnContainerActive" : "btnContainer"
+						}]]></xp:this.styleClass>
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="complete" id="eventHandler1">
+							<xp:this.action>
+								<xp:openPage name="/dashboard.xsp"></xp:openPage>
+							</xp:this.action>
+						</xp:eventHandler>
+					</xp:button>
+				</xp:td>
+				<xp:td style="width:140.0px">
+					<ul id="dropmenu" class="dropmenu">
+						<li>
+							<xp:button value=" ViewList" id="btnViewList" style="font-weight:bold"
+								styleClass="btnContainer" icon="/viewList.png">
+							</xp:button>
+							<ul>
+								<li>
+									<xp:link escape="true" text=" すべての文書" value="/all.xsp"
+										id="link1">
+										<xp:this.styleClass><![CDATA[#{javascript:
+											context.getUrl().getAddress().contains( "all.xsp" ) ? "dropmenuActive dropmenuTop" : "dropmenuTop"
+										}]]></xp:this.styleClass>
+										<xp:image id="image1" url="/switchView-mini.png">
+										</xp:image>
+									</xp:link>
+								</li>
+								<li>
+									<xp:link escape="true" text=" カテゴリ別" value="/byCategory.xsp"
+										id="link2">
+										<xp:this.styleClass><![CDATA[#{javascript:
+											context.getUrl().getAddress().contains( "byCategory.xsp" ) ? "dropmenuActive dropmenuBottom" : "dropmenuBottom"
+										}]]></xp:this.styleClass>
+										<xp:image id="image2" url="/switchView-mini.png">
+										</xp:image>
+									</xp:link>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</xp:td>
+			</xp:tr>
+		</xp:table>
+		<xp:table style="width:100.0%">
+			<xp:tr>
+				<xp:td>
+					<xp:callback facetName="facet_1" id="callback1"></xp:callback>
+				</xp:td>
+			</xp:tr>
+		</xp:table>
+	</xp:panel>
+</xp:view>

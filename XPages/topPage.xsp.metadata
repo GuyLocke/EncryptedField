@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.8" replicaid="492581A1001B3609" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="1de" sequence="22" unid="D9C5B3BC3181320B492580F10030090B">
+<created><datetime>20170328T174440,43+09</datetime></created>
+<modified><datetime>20170920T135714,09+09</datetime></modified>
+<revised><datetime>20170330T152101,14+09</datetime></revised>
+<lastaccessed><datetime>20170920T135714,08+09</datetime></lastaccessed>
+<addedtofile><datetime>20170920T135714,08+09</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Domino Administrator/O=EFMIYO</name></updatedby>
+<wassignedby><name>CN=Domino Administrator/O=EFMIYO</name></wassignedby>
+<item name="$Flags"><text>gC~4K</text></item>
+<item name="$TITLE"><text>topPage.xsp</text></item>
+
+<item name="$Comment" sign="true"><text>トップページ（環境設定文書による切り替え用）</text></item>
+
+
+<item name="$FileNames" sign="true"><text>topPage.xsp</text></item>
+<item name="$DesignerVersion"><text>8.5</text></item>
+
+
+
+</note>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:panel style="padding-left:10.0px;padding-right:10.0px">
+		<xp:table style="width:100.0%">
+			<xp:tr>
+				<xp:td align="right">
+					<xp:label value="作成者：" id="createdUser_Label1" styleClass="historyFont"></xp:label>
+					<xp:text escape="true" id="cfCreatedUser" styleClass="historyFont">
+						<xp:this.value><![CDATA[#{javascript:
+							var uname = "";
+							if ( document1.isNewNote() ) {
+								uname = @UserName();
+							} else {
+								uname = document1.getItemValueString( "CreatedUser" );
+							}
+							return @Name("[ABBREVIATE]", uname );
+						}]]></xp:this.value>
+					</xp:text>
+				</xp:td>
+				<xp:td align="right" style="width:230.0px">
+					<xp:label value="作成日時：" id="creationDateTime_Label1"
+						styleClass="historyFont">
+					</xp:label>
+					<xp:text escape="true" id="cfCreatedDate"
+						styleClass="historyFont">
+						<xp:this.value><![CDATA[#{javascript:
+							var cdate;
+							if ( document1.isNewNote() ) {
+								cdate = @Created();
+							} else {
+								cdate = document1.getItemValueDate( "CreatedDateTime" );
+							}
+							return I18n.toString( cdate, "yyyy/MM/dd HH:mm:ss" );
+						}]]></xp:this.value>
+					</xp:text>
+				</xp:td>
+			</xp:tr>
+			<xp:tr>
+				<xp:td align="right">
+					<xp:label value="最終更新者：" id="lastModifiedUser_Label1" styleClass="historyFont"></xp:label>
+					<xp:text escape="true" id="cfLastUpdatedUser" styleClass="historyFont">
+						<xp:this.value><![CDATA[#{javascript:
+							var uname = "";
+							if ( document1.isNewNote() ) {
+								uname = @UserName();
+							} else {
+								uname = document1.getItemValueString( "LastUpdatedUser" );
+							}
+							return @Name("[ABBREVIATE]", uname );
+						}]]></xp:this.value>
+					</xp:text>
+				</xp:td>
+				<xp:td align="right">
+					<xp:label value="最終更新日時：" id="lastModifiedDateTime_Label1" styleClass="historyFont"></xp:label>
+					<xp:text escape="true" id="cfLastUpdatedDate" styleClass="historyFont">
+						<xp:this.value><![CDATA[#{javascript:
+							var udate;
+							if ( document1.isNewNote() ) {
+								udate = @Now();
+							} else {
+								udate = document1.getItemValueDate( "LastUpdatedDateTime" );
+							}
+							return I18n.toString( udate, "yyyy/MM/dd HH:mm:ss" );
+						}]]></xp:this.value>
+					</xp:text>
+				</xp:td>
+			</xp:tr>
+		</xp:table>
+	</xp:panel>
+</xp:view>
