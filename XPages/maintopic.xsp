@@ -103,7 +103,7 @@
 						</xp:tr>
 						<xp:tr>
 							<xp:td styleClass="thStyle">
-								<xp:label value="非暗号データ：" id="nonEncryptedData_Label1"
+								<xp:label value="非暗号化データ：" id="nonEncryptedData_Label1"
 									for="nonEncryptedData1" styleClass="itemLabel"></xp:label>
 							</xp:td>
 							<xp:td styleClass="tdStyle">

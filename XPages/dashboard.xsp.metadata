@@ -1,20 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.8" replicaid="492581A1001B3609" version="9.0" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="1da" sequence="31" unid="87C0733906C005D1492580F100260123">
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.10" replicaid="49258348000EC54C" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="2e2" sequence="8" unid="87C0733906C005D1492580F100260123">
 <created><datetime>20170328T155506,59+09</datetime></created>
-<modified><datetime>20170920T135714,07+09</datetime></modified>
-<revised><datetime>20170330T154204,53+09</datetime></revised>
-<lastaccessed><datetime>20170920T135714,06+09</datetime></lastaccessed>
-<addedtofile><datetime>20170920T135714,06+09</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Domino Administrator/O=EFMIYO</name></updatedby>
-<wassignedby><name>CN=Domino Administrator/O=EFMIYO</name></wassignedby>
+<modified><datetime>20181117T114132,22+09</datetime></modified>
+<revised><datetime>20181117T114132,21+09</datetime></revised>
+<lastaccessed><datetime>20181117T114132,22+09</datetime></lastaccessed>
+<addedtofile><datetime>20181117T114130,17+09</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Domino Administrator/O=EFLAB</name></updatedby>
+<wassignedby><name>CN=Domino Administrator/O=EFLAB</name></wassignedby>
 <item name="$Flags"><text>gC~4K</text></item>
 <item name="$TITLE"><text>dashboard.xsp</text></item>
 <item name="$Comment" sign="true"><text>ダッシュボード</text></item>
 
 
-
 <item name="$FileNames" sign="true"><text>dashboard.xsp</text></item>
 <item name="$DesignerVersion"><text>8.5</text></item>
+
 
 
 
